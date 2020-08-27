@@ -1,0 +1,38 @@
+.textarea-block {
+  position: relative;
+}
+
+.textarea-block + .textarea-block {
+  /* selecionamos todos os textareas blocks depois do primeiro e aplicamos a margem  (no caso, no segundo e terceiro) */
+  margin-top: 1.4rem;
+}
+
+.textarea-block label {
+  font-size: 1.4rem;
+}
+
+.textarea-block textarea {
+  width: 100%;
+  height: 16rem;
+  min-height: 8rem;
+  margin-top: 0.8rem;
+  border-radius: 0.8rem;
+  background: var(--color-textarea-background);
+  border: 1px solid var(--color-line-in-white);
+  outline: 0;
+  resize: vertical /* só podera aumentar de tamanho verticalmente */;
+  padding: 1.2rem /* top e bottom */ 1.6rem /* left e right */;
+  font: 1.6rem Archivo;
+}
+
+.textarea-block:focus-within::after {
+  /* aqui editamos o focus do textarea */
+  width: calc(100% - 3.2rem);
+  height: 2px;
+  content: '';
+  background: var(--color-primary-light);
+  position: absolute;
+  left: 1.6rem;
+  right: 1.6rem;
+  bottom: 7px;
+}
