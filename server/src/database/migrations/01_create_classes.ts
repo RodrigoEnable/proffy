@@ -1,16 +1,14 @@
 import Knex from 'knex';
 
-// os métodos aqui precisam ter exatamente o mesmo nome, up e down
-
 export async function up(knex: Knex) {
-  return knex.schema.createTable('classes', table => { // criamos a tabela do bd de nome classes
-    table.increments('id').primary(); // criamos o primeiro campo no bd, de nome id
+  return knex.schema.createTable('classes', table => {
+    table.increments('id').primary();
     table.string('subject').notNullable();
     table.decimal('cost').notNullable();
-    table.integer('user_id').notNullable().references('id').inTable('users').onUpdate('CASCADE').onDelete('CASCADE'); // aqui temos um exemplo de relacionamento entre campos no knex
+    table.integer('user_id').notNullable().references('id').inTable('users').onUpdate('CASCADE').onDelete('CASCADE');
   });
 }
 
-export async function down(knex: Knex) { // deletamos a tabela
+export async function down(knex: Knex) {
   return knex.schema.dropTable('classes');
 }
