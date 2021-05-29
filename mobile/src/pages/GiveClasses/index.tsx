@@ -6,7 +6,7 @@ import giveClassesBgImage from '../../assets/images/give-classes-background.png'
 import styles from './styles';
 
 const GiveClasses = () => {
-  const { goBack } = useNavigation(); // o método goBack permite retornar para a tela anterior na pilha
+  const { goBack } = useNavigation();
 
   const handleNavigateBack = () => {
     goBack(); 
@@ -15,9 +15,9 @@ const GiveClasses = () => {
   return (
     <View style={styles.container}>
       <ImageBackground 
-        resizeMode="contain" /* utilizamos a propriedade resizeMode visto que funciona melhor assim do que no estilo normal para o componente ImageBackground */
+        resizeMode="contain"
         source={giveClassesBgImage} 
-        style={styles.content} /* pedimos para que a imagem de background fique contida ao tamanho do elemento pela propriedade resizeMode="contain" */>
+        style={styles.content}>
         <Text style={styles.title}>Quer ser um Proffy?</Text>
         <Text style={styles.description}>Para começar, você precisa se cadastrar como professor na nossa plataforma web.</Text>
       </ImageBackground>
