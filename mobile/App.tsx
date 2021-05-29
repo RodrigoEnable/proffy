@@ -1,4 +1,4 @@
-import { StatusBar } from 'expo-status-bar'; // esse componente controla como a status bar do dispositivo se comporta 
+import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { AppLoading } from 'expo';
 import { Archivo_400Regular, Archivo_700Bold, useFonts } from '@expo-google-fonts/archivo';
@@ -20,7 +20,7 @@ export default function App() {
   return (
     <>
       <AppStack />
-      <StatusBar style="light" /* aqui aplicamos o comportamento da status bar do dispositivo */ />
+      <StatusBar style="light" />
     </>
   );
 }
