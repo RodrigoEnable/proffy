@@ -44,7 +44,6 @@
 
   #search-teachers {
     display: grid;
-    /* o grid columns é 1fr 1fr 1fr, utilizamos a função 'repeat(3, 1fr)' para dizer isso */
     grid-template-columns: repeat(4, 1fr);
     column-gap: 16px;
     position: absolute;
@@ -53,7 +52,6 @@
 
   #search-teachers .input-block + .input-block,
   #search-teachers .select-block + .select-block {
-    /* selecionamos todos os inputs blocks depois do primeiro e aplicamos a margem  (no caso, no segundo e terceiro) */
     margin-top: 0;
   }
 
