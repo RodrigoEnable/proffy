@@ -1,10 +1,8 @@
 import Knex from 'knex';
 
-// os métodos aqui precisam ter exatamente o mesmo nome, up e down
-
 export async function up(knex: Knex) {
-  return knex.schema.createTable('users', table => { // criamos a tabela do bd de nome users
-    table.increments('id').primary(); // criamos o primeiro campo no bd, de nome id
+  return knex.schema.createTable('users', table => {
+    table.increments('id').primary();
     table.string('name').notNullable();
     table.string('avatar').notNullable();
     table.string('whatsapp').notNullable();
@@ -12,6 +10,6 @@ export async function up(knex: Knex) {
   });
 }
 
-export async function down(knex: Knex) { // deletamos a tabela
+export async function down(knex: Knex) {
   return knex.schema.dropTable('users');
 }
