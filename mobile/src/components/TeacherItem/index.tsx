@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from 'react';
-import { View, Image, Text, Linking } from 'react-native'; // Linking é utilizado para que seja possível acessar outras aplicações a partir de um link
+import { View, Image, Text, Linking } from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
 import { useFocusEffect } from '@react-navigation/native';
 import api from '../../services/api';
@@ -29,9 +29,7 @@ const TeacherItem: React.FunctionComponent <TeacherItemProps> = ({ teacher, favo
   const [isFavorited, setIsFavorited] = useState(favorited);
 
   const handleLinkToWhatsapp = () => {
-    /* Ao clicar no link de whatsapp, atualizamos o total de conexões */
     api.post('/connections', {user_id: teacher.id});
-    /* Whatsapp Deep Linking, acessamos o aplicativo whatsapp pelo componente Linking do React Native */
     Linking.openURL(`whatsapp://send?phone=${teacher.whatsapp}`);
   }
 
@@ -54,9 +52,8 @@ const TeacherItem: React.FunctionComponent <TeacherItemProps> = ({ teacher, favo
     await AsyncStorage.setItem('favorites', JSON.stringify(favoritesArray));
   }
 
-  // aplicamos o useFocusEffect do React Navigation
   useFocusEffect(
-    useCallback(() => { // utilizamos o hook useCallback para evitar um loop, aqui atualizamos a aba para alterar o botão de favorited
+    useCallback(() => {
       setIsFavorited(favorited);
     }, [favorited])
   )
