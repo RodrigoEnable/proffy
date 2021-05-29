@@ -23,7 +23,6 @@
 }
 
 #page-teacher-form main fieldset + fieldset {
-  /* a partir do segundo fieldset colocamos uma margin top */
   margin-top: 6.4rem;
 }
 
@@ -103,7 +102,6 @@
 }
 
 @media (min-width: 700px) {
-  /* acima da largura de 700px serão aplicados os estilos abaixo */
   #page-teacher-form {
     max-width: 100vw;
   }
