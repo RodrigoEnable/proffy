@@ -8,7 +8,7 @@ import StudyTab from './StudyTab';
 // const 'appStackNavigation' desestruturada
 const { Navigator, Screen } = createStackNavigator();
 
-const AppStack = () => {
+const AppStack = () => { 
   return (
     <NavigationContainer>
       <Navigator screenOptions={{headerShown: false}}>
