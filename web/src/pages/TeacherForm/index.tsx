@@ -10,7 +10,6 @@ import './styles.css';
 
 const TeacherForm = () => {
   const history = useHistory();
-  // criamos os estados necessários
   const [name, setName] = useState('');
   const [avatar, setAvatar] = useState('');
   const [whatsapp, setWhatsapp] = useState('');
@@ -19,43 +18,35 @@ const TeacherForm = () => {
   const [cost, setCost] = useState('');
   const [scheduleItems, setScheduleItems] = useState([{week_day: 0, from: '', to: ''}]);
 
-  // função addNewScheduleItem é responsável por atualizar o estado, inserindo um novo campo de horário
   const addNewScheduleItem = () => {
     setScheduleItems([...scheduleItems, {week_day: 0, from: '', to: ''}]);
-    // ...scheduleItems, criamos um array novo e utilizamos o spread operator para copiar os itens do array anterior em scheduleItems
-    // {week_day: 0, from: '', to: ''}, em seguida incluímos um novo item (que é um objeto) para o array
   }
 
-  // função responsável por atualizar os dados manipulados pelo aluno, week_day, from e to
   const setScheduleItemValue = (position: number, field: string, value: string) => {
     const updatedScheduleItems = scheduleItems.map((scheduleItem, index) => {
-      // se index for igual a position, ou seja, se o índice no array for o mesmo, executa o if
       if (index === position) {
-        // [field] faz com que o nome da propriedade não seja "field" e sim a variável week_day, como ela já existe dentro de scheduleItem, é sobreposta com novo valor
         return {...scheduleItem, [field]: value}
         
       }
       return scheduleItem;
     });
 
-    setScheduleItems(updatedScheduleItems); // atualizamos o array
+    setScheduleItems(updatedScheduleItems);
   }
 
-  const handleCreateClass = (e: FormEvent) => { // precisamos sinalizar que o parâmetro trata-se de um evento de formulário para o typescript entender
-    e.preventDefault(); // previne o comportamento padrão do formulário, ou seja, ser submetido ao clicar no botão submit
-    // console.log(name, avatar, whatsapp, bio, subject, cost, scheduleItems);
-    api.post('classes', { // acessamos a api do axios e dizemos que o método é post (incluir uma informação no bd)
-      name, // short sintax
-      avatar, // short sintax
-      whatsapp, // short sintax
-      bio, // short sintax
-      subject, // short sintax
-      cost: Number(cost), // definimos cost como number
-      schedule: scheduleItems // como o nome do estado não é o mesmo do parâmetro, não é possível aplicar short sintax, e atribuímos a ele o estado
-      // aqui utilizamos o then/catch e no TeacherList utilizamos o async/await
+  const handleCreateClass = (e: FormEvent) => {
+    e.preventDefault();
+    api.post('classes', {
+      name,
+      avatar,
+      whatsapp,
+      bio,
+      subject,
+      cost: Number(cost),
+      schedule: scheduleItems
     }).then(() => {
       alert('Cadastro realizado com sucesso')
-      history.push('/'); // após submetido o formulário redirecionamos para a landing page.
+      history.push('/');
     }).catch(() => {
       alert('Erro no cadastro')
     })
@@ -71,7 +62,6 @@ const TeacherForm = () => {
         <form onSubmit={handleCreateClass}>
           <fieldset>
             <legend>Seus dados</legend>
-            {/* a propriedade onChange nos retorna um evento (e), o qual recebemos como parâmetro na arrow function e atualizamos name por meio de setName(e.target.value) */}
             <Input 
               name="name" 
               label="Nome completo" 
@@ -124,10 +114,8 @@ const TeacherForm = () => {
               Horários disponíveis
               <button type="button" onClick={addNewScheduleItem}>+ Novo horário</button>
             </legend>
-            {/* fazemos um map no estado scheduleItems */}
             {scheduleItems.map((scheduleItem, index) => {
               return (
-                // definimos como chave para esse map o dia da semana, que será um valor único, o aluno não poderá marcar dois horários no mesmo dia
                 <div key={scheduleItem.week_day} className="schedule-item">
                 <Select 
                   name="week-day" 
