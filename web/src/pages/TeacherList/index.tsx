@@ -14,15 +14,11 @@ const TeacherList = () => {
 
   const searchTeachers = async (e: FormEvent) => {
     e.preventDefault();
-    //console.log(subject, weekday, time)
-    // não podemos enviar diretamente os parâmetros numa requisição get, somente post e put
-    // numa requisição get solicitamos dentro da propriedade params
-    // aqui utilizamos o async/await e no TeacherForm utilizamos o then/catch
     const response = await api.get('classes', {
       params: {
-        subject, // short sintax
-        week_day: weekday, // como o nome do estado não é o mesmo do parâmetro, não é possível aplicar short sintax, e atribuímos a ele o estado
-        time // short sintax
+        subject,
+        week_day: weekday,
+        time
       }
     });
     setTeachers(response.data);
@@ -65,7 +61,6 @@ const TeacherList = () => {
               {value: '6', label: 'Sábado'},
             ]}
           />
-          {/* como definimos no componente Input que queremos todos os atributos padrão do elemento input, quando inserimos o type="time" funciona normalmente */}
           <Input 
             type="time" 
             name="time" 
@@ -77,7 +72,6 @@ const TeacherList = () => {
         </form>
       </PageHeader>
       <main>
-        {/* realizamos um map para listar os professores */}
         {teachers.map((teacher: Teacher) => {
           return <TeacherItem key={teacher.id} teacher={teacher} />
         })}
