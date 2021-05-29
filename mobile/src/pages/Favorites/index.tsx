@@ -1,14 +1,13 @@
 import React, { useState, useCallback } from 'react';
 import { View, ScrollView } from 'react-native';
-import { useFocusEffect } from '@react-navigation/native'; // useFocusEffect permite que uma aba da navegação por abas seja atualizada automaticamente caso ocorra alguma modificação
+import { useFocusEffect } from '@react-navigation/native';
 import AsyncStorage from '@react-native-community/async-storage';
 import PageHeader from '../../components/PageHeader';
 import TeacherItem, { Teacher } from '../../components/TeacherItem';
 import styles from './styles';
 
 const Favorites = () => {
-
-  const [favorites, setFavorites] = useState([]); // podemos sinalizar que o favorites é um array numérico diretamente também, sem defini-lo em interface
+  const [favorites, setFavorites] = useState([]);
 
   const loadFavorites = () => {
     AsyncStorage.getItem('favorites').then(response => {
@@ -19,9 +18,8 @@ const Favorites = () => {
     });
   }
 
-  // aplicamos o useFocusEffect do React Navigation
   useFocusEffect(
-    useCallback(() => { // utilizamos o hook useCallback para evitar um loop
+    useCallback(() => {
       loadFavorites();
     }, [])
   )
@@ -31,7 +29,6 @@ const Favorites = () => {
       <PageHeader title="Meus proffys favoritos" />
       <ScrollView 
         style={styles.teacherList}
-        // utilizamos a propriedade contentContainerStyle visto que o padding funciona melhor aqui do que no estilo normal
         contentContainerStyle={{
           paddingHorizontal: 16,
           paddingBottom: 16,
@@ -42,7 +39,7 @@ const Favorites = () => {
             <TeacherItem 
               key={teacher.id} 
               teacher={teacher}
-              favorited // o React entende que isso é true
+              favorited
             />
           )
         } )}
