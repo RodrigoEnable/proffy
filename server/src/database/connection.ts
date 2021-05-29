@@ -1,7 +1,7 @@
 import knex from 'knex';
-import path from 'path'; // path é um método padrão do Node para facilitar o caminho da aplicação
+import path from 'path';
 
-const db = knex({ // knex aceita vários bds além do sqlite3
+const db = knex({
   client: 'sqlite3',
   connection: {
     filename: path.resolve(__dirname, 'database.sqlite')
