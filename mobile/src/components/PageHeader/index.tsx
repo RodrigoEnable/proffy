@@ -1,20 +1,17 @@
-import React, { ReactNode } from 'react'; // importamos ReactNode, a utilidade dele é passar como propriedade de um componente outro componente
+import React, { ReactNode } from 'react';
 import { View, Image, Text } from 'react-native';
-import { BorderlessButton } from 'react-native-gesture-handler'; // como é apenas um ícone (sem fundo), importamos BorderlessButton
+import { BorderlessButton } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native';
 import backIcon from '../../assets/images/icons/back.png';
 import logoImg from '../../assets/images/logo.png';
 import styles from './styles';
 
-
 interface PageHeaderProps {
   title: string;
-  headerRight?: ReactNode; // dizemos que ReactNode é opcional
+  headerRight?: ReactNode;
 }
 
 const PageHeader: React.FunctionComponent <PageHeaderProps> = ({ title, headerRight, children }) => {
-
-  // const 'navigation' desestruturada
   const { navigate } = useNavigation();
 
   const handleGoBack = () => {
