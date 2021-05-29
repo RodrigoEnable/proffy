@@ -8,8 +8,8 @@ const styles = StyleSheet.create({
     padding: 40,
   },
   banner: {
-    width: '100%', // queremos que ocupe todo espaço disponível
-    resizeMode: 'contain', // queremos que a imagem não ultrapasse a tela do dispositivo
+    width: '100%',
+    resizeMode: 'contain',
   },
   title: {
     fontFamily: 'Poppins_400Regular',
@@ -49,8 +49,8 @@ const styles = StyleSheet.create({
     fontFamily: 'Poppins_400Regular',
     color: '#D4C2FF',
     fontSize: 12,
-    lineHeight: 20, // aplicamos um espaçamento entre as linhas do texto
-    maxWidth: 140, // aplicamos um tamanho máximo para a largura do texto
+    lineHeight: 20
+    maxWidth: 140,
     marginTop: 40,
   }
 });
