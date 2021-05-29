@@ -11,7 +11,7 @@ import styles from './styles';
 const TeacherList = () => {
 
   const [filtersVisible, setFiltersVisible] = useState(false);
-  const [favorites, setFavorites] = useState<number[]>([]); // podemos sinalizar que o favorites é um array numérico diretamente também, sem defini-lo em interface
+  const [favorites, setFavorites] = useState<number[]>([]);
   const [teachers, setTeachers] = useState([]);
   const [subject, setSubject] = useState('');
   const [weekday, setWeekday] = useState('');
@@ -34,15 +34,11 @@ const TeacherList = () => {
   }, [teachers]);
 
   const handleFiltersSubmit = async () => {
-    //console.log(subject, week_day: weekday, time)
-    // não podemos enviar diretamente os parâmetros numa requisição get, somente post e put
-    // numa requisição get solicitamos dentro da propriedade params
-    // aqui utilizamos o async/await e no TeacherForm utilizamos o then/catch
     const response = await api.get('classes', {
       params: {
-        subject, // short sintax
-        week_day: weekday, // como o nome do estado não é o mesmo do parâmetro, não é possível aplicar short sintax, e atribuímos a ele o estado
-        time // short sintax
+        subject,
+        week_day: weekday,
+        time
       }
     });
     console.log(response.data);
@@ -52,14 +48,13 @@ const TeacherList = () => {
 
   const handleTogglerFiltersVisible = () => {
     setFiltersVisible(!filtersVisible);
-    // se for false, ao clicar seta como true, se estiver true, ao clicar seta como false
   }
 
   return (
     <View style={styles.container}>
       <PageHeader 
         title="Proffys disponíveis" 
-        headerRight={( // sempre utilizar parênteses quando for necessário retornar mais de uma linha de JSX, aqui retornamos o componente por meio do ReactNode
+        headerRight={(
           <BorderlessButton onPress={handleTogglerFiltersVisible}>
             <Feather name="filter" size={20} color="#FFF" />
           </BorderlessButton>
@@ -104,7 +99,6 @@ const TeacherList = () => {
       </PageHeader>
       <ScrollView 
         style={styles.teacherList}
-        // utilizamos a propriedade contentContainerStyle visto que o padding funciona melhor aqui do que no estilo normal
         contentContainerStyle={{
           paddingHorizontal: 16,
           paddingBottom: 16,
