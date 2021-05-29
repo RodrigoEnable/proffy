@@ -6,7 +6,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#F0F0F7',
   },
   teacherList: {
-    /* fazemos esse marginTop negativo para que suba um pouco para cima do cabeçalho */
     marginTop: -40,
   },
 });
