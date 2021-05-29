@@ -1,5 +1,4 @@
 :root { 
-  /* variáveis de cores */
   --color-background: #F0F0F7; 
   --color-primary-lighter: #9871F5;
   --color-primary-light: #916BEA;
@@ -29,12 +28,10 @@
 }
 
 html, body, #root {
-  /* faz com que a página ocupe sempre 100% da tela */
   height: 100vh;
 }
 
 body {
-  /* utilização da variável de cor */
   background: var(--color-background);
 }
 
@@ -45,20 +42,16 @@ body {
 }
 
 body, input, button, textarea {
-  /* não adianta alterar somente a fonte do body porque input, button e textarea tem configuração padrão própria */
-  /* rem é uma medida muito utilizada para interfaces responsivas 1rem = 9.6px */
   font: 500 1.6rem Poppins;
   color: var(--color-text-base);
 }
 
 .container {
-  /* a largura (width) sempre ocupará 90% da tela a menos que esse 90% passe de 700px (max-width) */
   width: 90vw;
   max-width: 700px;
 }
 
 @media (min-width: 700px) {
-  /* dispositivos com largura mínima de 700px, aumentaremos um pouco o tamanho da fonte */
   :root {
     font-size: 62.5%;
   }
