@@ -37,8 +37,8 @@ const TeacherItem: React.FunctionComponent <TeacherItemProps> = ({teacher}) => {
     <footer>
       <p>Preço/Hora <strong>R$ {teacher.cost}</strong></p>
       <a 
-        onClick={createNewConnection} // ao clicar chamamos a função createNewConnection que atualiza a contagem de conexões na landing page
-        href={`https://wa.me/${teacher.whatsapp}`} // necessário a propriedade rel="noopener noreferrer" para não incorrer numa falha de segurança
+        onClick={createNewConnection}
+        href={`https://wa.me/${teacher.whatsapp}`}
         target="_blank" rel="noopener noreferrer">
         <img src={whatsappIcon} alt="Whatsapp"/>
         Entrar em contato
