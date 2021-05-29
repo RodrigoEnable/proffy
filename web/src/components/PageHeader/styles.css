@@ -1,6 +1,6 @@
 .page-header {
-  display: flex; /* torna o elemento um flex container automaticamente transformando todos os seus filhos diretos em flex itens */
-  flex-direction: column; /* lembre-se que o padrão do 'display: flex' é row, portanto, se queremos column precisamos definir 'flex-direction: column' */
+  display: flex;
+  flex-direction: column;
   background: var(--color-primary);
 }
 
@@ -23,7 +23,7 @@
   opacity: 0.6;
 }
 
-.page-header .top-bar-container > img { /* pegamos a primeira imagem, a imagem que está no primeiro nível da top-bar-container */
+.page-header .top-bar-container > img {
   height: 1.6rem;
 }
 
