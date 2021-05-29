@@ -1,12 +1,12 @@
 import path from 'path';
 
-module.exports = { // necessário utilizar a sintaxe antiga, module.exports, não pode ser "export default"
+module.exports = {
   client: 'sqlite3',
   connection: {
-    filename: path.resolve(__dirname, 'src', 'database', 'database.sqlite') // caminho para o bd
+    filename: path.resolve(__dirname, 'src', 'database', 'database.sqlite')
   },
   migrations: {
-    directory: path.resolve(__dirname, 'src', 'database', 'migrations') // caminho para a migrations
+    directory: path.resolve(__dirname, 'src', 'database', 'migrations')
   },
   useNullAsDefault: true,
 };
