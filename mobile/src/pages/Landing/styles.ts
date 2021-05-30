@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Poppins_400Regular',
     color: '#D4C2FF',
     fontSize: 12,
-    lineHeight: 20
+    lineHeight: 20,
     maxWidth: 140,
     marginTop: 40,
   }
