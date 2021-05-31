@@ -1,4 +1,4 @@
-![Proffy-Logo](https://github.com/RodrigoEnable/proffy/blob/master/proffy.svg)
+![Proffy-Logo](https://github.com/RodrigoEnable/proffy/blob/main/proffy.svg)
 
 ## Participação na Next Level Week 2
 Foi produzido no evento a versão web e mobile do Proffy, uma aplicação para encontro de professores particulares e alunos. O evento ocorreu de 2 a 8 de Agosto. Todos os recursos empregados nesse projeto estão listados abaixo.
